@@ -14,8 +14,11 @@
 //   impressive.
 //
 // * Probably lots of room for optimization.
+
+// Copyright (C) 2013 Felix E. Klee <felix.klee@inka.de>
 //
-// Copyright (C) 2008 - 2013 Felix E. Klee <felix.klee@inka.de>, Chris J. Kiick
+// Based on Chris J. Kiick's Arduino PS/2 library, released in January 2008
+// into the public domain.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to

@@ -1,4 +1,21 @@
-// Copyright (C) 2013 Felix E. Klee <felix.klee@inka.de>
+// For interfacing with a TrackPoint 4, or a compatible device.
+//
+// Based on the Arduino PS/2 library (`ps2.h`, `ps2.cpp`), written by Chris J.
+// Kiick in January 2008 and released into the public domain. As of August
+// 2013, it is available on:
+//
+// <http://playground.arduino.cc/componentLib/Ps2mouse> 
+//
+// Limitations according to `ps2.cpp`:
+//
+// * We do not handle parity errors.
+//
+// * The timing constants are hard coded from the spec. Data rate is not
+//   impressive.
+//
+// * Probably lots of room for optimization.
+
+// Copyright (C) 2013 [Felix E. Klee](mailto:felix.klee@inka.de)
 //
 // Based on Chris J. Kiick's Arduino PS/2 library, released in January 2008
 // into the public domain.

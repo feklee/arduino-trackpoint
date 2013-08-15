@@ -1,5 +1,3 @@
-#include "Trackpoint.h"
-
 // Allows control of the mouse cursor on the connected computer, via a
 // TrackPoint.
 
@@ -7,10 +5,6 @@
 
 // An RGB LED shows loop speed. It is controlled by a decade counter (mostly
 // for the author's practise).
-
-// Depends on the PS/2 library available on (as of August 2013):
-
-// <http://playground.arduino.cc/componentLib/Ps2mouse> 
 
 // Copyright (C) 2013 Felix E. Klee <felix.klee@inka.de>
 //
@@ -31,6 +25,8 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
+
+#include "Trackpoint.h"
 
 const char tpClkPin = 8; // tp = TrackPoint
 const char tpDataPin = 9;
@@ -113,6 +109,19 @@ float potiPos() {
   return analogRead(potiSliderAnalogPin) / 1023.;
 }
 
+void sendButtonState(byte state) {
+  static const char hidStates[] = {MOUSE_LEFT, MOUSE_RIGHT};
+
+  for (byte i = 0; i < sizeof(hidStates); i++) {
+    byte hidState = hidStates[i];
+    if (state & (1 << i)) {
+      Mouse.press(hidState);
+    } else if (Mouse.isPressed(hidState)) {
+      Mouse.release(hidState);
+    }
+  }
+}
+
 // Reads TrackPoint data and sends data to computer.
 void loop() {
   static float oldPotiPos = -1;
@@ -122,7 +131,12 @@ void loop() {
 
   Trackpoint::DataReport d = trackpoint.readData();
 
-  Mouse.move(d.x, -d.y, 0);
+  if (d.state & (1 << 2)) { // middle button down => scroll
+    Mouse.move(0, 0, d.y);
+  } else {
+    Mouse.move(d.x, -d.y, 0);
+    sendButtonState(d.state);
+  }
 
   if (abs(newPotiPos - oldPotiPos) > 0.05) { // ignores small fluctuations
     trackpoint.setSensitivityFactor(0xff * potiPos());

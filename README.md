@@ -20,7 +20,7 @@ of my ThinkPad 1161-267 to an Arduino Micro.
 License
 =======
 
-Copyright (C) 2013 Felix E. Klee <felix.klee@inka.de>
+Copyright (C) 2013 [Felix E. Klee](mailto:felix.klee@inka.de)
 
 Based on Chris J. Kiick's Arduino PS/2 library, released in January 2008 into
 the public domain.

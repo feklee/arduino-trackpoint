@@ -7,8 +7,6 @@ Tested with Arduino IDE: 1.0.5
 
 See also the [TrackPoint System Version 4.0 Engineering Specification][1].
 
-Felix E. Klee <felix.klee@inka.de>
-
 
 Example
 =======

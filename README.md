@@ -8,13 +8,6 @@ Tested with Arduino IDE: 1.0.5
 See also the [TrackPoint System Version 4.0 Engineering Specification][1].
 
 
-Example
-=======
-
-I successfully used the library with a TrackPoint board broken off the keyboard
-of my ThinkPad 1161-267 to an Arduino Micro.
-
-
 License
 =======
 

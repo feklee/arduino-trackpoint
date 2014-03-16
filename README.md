@@ -7,6 +7,10 @@ Tested with Arduino IDE: 1.0.5
 
 See also the [TrackPoint System Version 4.0 Engineering Specification][1].
 
+**Update:** This library only supports interfacing with the TrackPoint in
+*remote mode*; For a library that supports *stream mode*, have a look at Cong
+Nguyen’s [arduino-trackpoint-extended][2].
+
 
 License
 =======
@@ -36,3 +40,4 @@ SOFTWARE.
 
 
 [1]: http://blogs.epfl.ch/icenet/documents/Ykt3Eext.pdf
+[2]: https://github.com/rampadc/arduino-trackpoint-extended
